@@ -55,8 +55,9 @@ class LearningAgent(Agent):
             # optimization 3
             # self.epsilon = 1 / math.pow(math.e, 0.05 * self.round)
             # optimization 4
-            self.epsilon = math.cos(0.004 * self.round)
-
+            # self.epsilon = math.cos(0.004 * self.round)
+            self.epsilon = math.cos(0.001 * self.round)
+            
         return None
 
     def build_state(self):
@@ -204,7 +205,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent, learning=True)
+    agent = env.create_agent(LearningAgent, learning=True, alpha=0.85)
     
     ##############
     # Follow the driving agent
